@@ -1,0 +1,99 @@
+components:
+  schemas:
+    uploadResponse:
+      title: Upload File Response
+      type: object
+      properties:
+        id:
+          type: string
+      required:
+        - id
+    uploadFile:
+      type: object
+      properties:
+        fileType:
+          $ref: '#/components/schemas/fileType'
+        caseId:
+          $ref: './caseid.yaml#/components/schemas/caseId'
+        file:
+          type: string
+          format: binary
+        extension:
+          type: string
+        source:
+          $ref: '#/components/schemas/source'
+      required:
+        - fileType
+        - file
+    downloadResponse:
+      title: Download File Response
+      type: string
+      format: binary
+    downloadPathResponse:
+      title: Download Path File Response
+      type: object
+      properties:
+        path:
+          type: string
+      required:
+        - path
+    fileType:
+      type: string
+      enum:
+        - IDFACEIMAGE
+        - IDBACKIMAGE
+        - GIDFRONTIMAGE
+        - GIDBACKIMAGE
+        - VISAIMAGE
+        - PASSPORTIMAGE
+        - SELFIEIMAGE
+        - UTILITYBILLIMAGE
+        - SIGCARDIMAGE
+        - FATCA
+        - CRS
+        - RCS
+        - STATUTES
+        - STATISTICALCARD
+        - DELEGATIONOFPOWER
+        - TAXIDCARD
+        - LIVENESS
+        - ACSS
+        - AML
+        - OTHER
+        - PORTRAIT
+        - W8
+        - W9
+        - FINTECHMERCHANTAGREEMENT
+        - NIDCRC
+        - ADDRESSPROOF
+        - BUSINESSCATEGORYLOGO
+        - MERCHANTLOGO
+        - MERCHANTPREVIEW
+        - ICON
+    source:
+      type: string
+      enum:
+        - MPAY
+        - MOBILE
+      default: MOBILE
+    attachments:
+      title: Attachment ID's
+      type: object
+      properties:
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/attachment'
+      required:
+        - attachments
+    attachment:
+      title: Attachment ID
+      type: object
+      properties:
+        id:
+          type: string
+        attType:
+          $ref: '#/components/schemas/fileType'
+      required:
+        - id
+        - attType

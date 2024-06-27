@@ -1,0 +1,7 @@
+components:
+  schemas:
+    caseId:
+      type: string
+      format: uuid
+      example: 4fa85f24-4717-6562-d3fc-2d963f66afa6
+      description: The Case ID that will be associated with any subsequent case creation call

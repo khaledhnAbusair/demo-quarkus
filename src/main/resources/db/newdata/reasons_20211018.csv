@@ -1,0 +1,8 @@
+id;name;description;code;reason_type_id
+1;Retake Selfie;Retake Selfie;10000;2
+2;Invalid ID Document;Invalid ID Document;10001;1
+3;Invalid Passport;Invalid Passport;10002;1
+4;Invalid Tax Information;Invalid Tax Information;10003;1
+5;Invalid Visa;Invalid Visa;10004;1
+6;Safewatch Warning;Safewatch Warning;10005;1
+7;Dummy Customer;Dummy Customer;10006;1

@@ -1,0 +1,786 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="aliqoul (generated)" id="1617869718843-1">
+        <createTable tableName="business_cases">
+            <column name="caseid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="business_cases_pkey"/>
+            </column>
+            <column name="crnumber" type="VARCHAR(255)"/>
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="englishname" type="VARCHAR(255)"/>
+            <column name="id_number" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="lastactionuser" type="VARCHAR(255)"/>
+            <column name="localname" type="VARCHAR(255)"/>
+            <column name="manualmodification" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="payload" type="NVARCHAR(MAX)"/>
+            <column name="remarks" type="NVARCHAR(255)"/>
+            <column name="stepid" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-2">
+        <createTable tableName="companies">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="companies_pkey"/>
+            </column>
+            <column name="crnumber" type="VARCHAR(255)"/>
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="foreignname" type="VARCHAR(255)"/>
+            <column name="id_number" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="localname" type="VARCHAR(255)"/>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="payload" type="NVARCHAR(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-3">
+        <createTable tableName="customer_cases">
+            <column name="caseid" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_cases_pkey"/>
+            </column>
+            <column name="birthDate" type="date"/>
+            <column name="place" type="VARCHAR(255)"/>
+            <column name="creationdate" type="TIMESTAMP"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="foreign_firstname" type="NVARCHAR(255)"/>
+            <column name="foreign_lastname" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename1" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename2" type="NVARCHAR(255)"/>
+            <column name="expiry" type="date"/>
+            <column name="document_number" type="NVARCHAR(255)"/>
+            <column name="document_type" type="NVARCHAR(255)"/>
+            <column name="id_number" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="lastactionuser" type="VARCHAR(255)"/>
+            <column name="local_firstname" type="NVARCHAR(255)"/>
+            <column name="local_lastname" type="NVARCHAR(255)"/>
+            <column name="local_middlename1" type="NVARCHAR(255)"/>
+            <column name="local_middlename2" type="NVARCHAR(255)"/>
+            <column name="manualmodification" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mobile" type="VARCHAR(255)"/>
+            <column name="modifiedfields" type="VARCHAR(4000)"/>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="payload" type="NVARCHAR(MAX)"/>
+            <column name="remarks" type="VARCHAR(255)"/>
+            <column name="stepid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-4">
+        <createTable tableName="customer_info_integ">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_info_integ_pkey"/>
+            </column>
+            <column name="content" type="VARCHAR(4000)"/>
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-5">
+        <createTable tableName="customers">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customers_pkey"/>
+            </column>
+            <column name="birthDate" type="date"/>
+            <column name="place" type="VARCHAR(255)"/>
+            <column name="creationdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="foreign_firstname" type="NVARCHAR(255)"/>
+            <column name="foreign_lastname" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename1" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename2" type="NVARCHAR(255)"/>
+            <column name="expiry" type="date"/>
+            <column name="document_number" type="VARCHAR(255)"/>
+            <column name="document_type" type="VARCHAR(255)"/>
+            <column name="id_number" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="local_firstname" type="NVARCHAR(255)"/>
+            <column name="local_lastname" type="NVARCHAR(255)"/>
+            <column name="local_middlename1" type="NVARCHAR(255)"/>
+            <column name="local_middlename2" type="NVARCHAR(255)"/>
+            <column name="mobile" type="VARCHAR(255)"/>
+            <column name="payload" type="NVARCHAR(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-6">
+        <createIndex indexName="idx_business_case_cr_number" tableName="business_cases">
+            <column name="crnumber"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-7">
+        <createIndex indexName="idx_business_case_email" tableName="business_cases">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-8">
+        <addUniqueConstraint columnNames="crnumber" constraintName="idx_company_cr_number" tableName="companies"/>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-9">
+        <createIndex indexName="idx_customer_case_email" tableName="customer_cases">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-10">
+        <createIndex indexName="idx_customer_case_nationality" tableName="customer_cases">
+            <column name="nationality"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-11">
+        <createIndex indexName="idx_customer_emial" tableName="customers">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-12">
+        <createIndex indexName="idx_customer_mobile" tableName="customers">
+            <column name="mobile"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="aliqoul (generated)" id="1617869718843-13">
+        <createSequence cacheSize="10" cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="1"
+                        sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="ahmadaghbar (generated)" id="1617869718843-14" dbms="postgresql">
+        <renameColumn tableName="customers" oldColumnName="birthDate" newColumnName="birthdate"/>
+    </changeSet>
+    <changeSet author="ahmadaghbar (generated)" id="1617869718843-15" dbms="postgresql">
+        <renameColumn tableName="customer_cases" oldColumnName="birthDate" newColumnName="birthdate"/>
+    </changeSet>
+
+    <changeSet author="ahmadalsharif (generated)" id="1628412229-16">
+        <createTable tableName="revinfo">
+            <column name="rev" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="revinfo_pkey"/>
+            </column>
+            <column name="revtstmp" type="BIGINT"/>
+        </createTable>
+
+        <createTable tableName="customer_cases_aud">
+            <column name="caseid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="BIGINT"/>
+            <column name="birthdate" type="date"/>
+            <column name="place" type="VARCHAR(255)"/>
+            <column name="creationdate" type="TIMESTAMP"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="foreign_firstname" type="NVARCHAR(255)"/>
+            <column name="foreign_lastname" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename1" type="NVARCHAR(255)"/>
+            <column name="foreign_middlename2" type="NVARCHAR(255)"/>
+            <column name="expiry" type="date"/>
+            <column name="document_number" type="VARCHAR(255)"/>
+            <column name="document_type" type="VARCHAR(255)"/>
+            <column name="id_number" type="VARCHAR(255)"/>
+            <column name="id_type" type="VARCHAR(255)"/>
+            <column name="lastactionuser" type="VARCHAR(255)"/>
+            <column name="local_firstname" type="NVARCHAR(255)"/>
+            <column name="local_lastname" type="NVARCHAR(255)"/>
+            <column name="local_middlename1" type="NVARCHAR(255)"/>
+            <column name="local_middlename2" type="NVARCHAR(255)"/>
+            <column name="manualmodification" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mobile" type="VARCHAR(255)"/>
+            <column name="modifiedfields" type="VARCHAR(4000)"/>
+            <column name="nationality" type="VARCHAR(255)"/>
+            <column name="payload" type="NVARCHAR(MAX)"/>
+            <column name="remarks" type="VARCHAR(255)"/>
+            <column name="stepid" type="VARCHAR(255)"/>
+            <column name="birthinfo_mod" type="BOOLEAN"/>
+            <column name="creationdate_mod" type="BOOLEAN"/>
+            <column name="email_mod" type="BOOLEAN"/>
+            <column name="foreignname_mod" type="BOOLEAN"/>
+            <column name="iddocument_mod" type="BOOLEAN"/>
+            <column name="idnumber_mod" type="BOOLEAN"/>
+            <column name="lastactionuser_mod" type="BOOLEAN"/>
+            <column name="localname_mod" type="BOOLEAN"/>
+            <column name="manualmodification_mod" type="BOOLEAN"/>
+            <column name="mobile_mod" type="BOOLEAN"/>
+            <column name="modifiedfields_mod" type="BOOLEAN"/>
+            <column name="nationality_mod" type="BOOLEAN"/>
+            <column name="payload_mod" type="BOOLEAN"/>
+            <column name="remarks_mod" type="BOOLEAN"/>
+            <column name="reasons_mod" type="BOOLEAN"/>
+            <column name="stepid_mod" type="BOOLEAN"/>
+        </createTable>
+
+        <addPrimaryKey
+                constraintName="customer_cases_aud_pkey"
+                columnNames="caseid, rev"
+                tableName="customer_cases_aud"
+        />
+
+        <addForeignKeyConstraint baseColumnNames="rev"
+                                 baseTableName="customer_cases_aud"
+                                 constraintName="fksahyfyy1kt64d6n6v10psnojp"
+                                 referencedColumnNames="rev"
+                                 referencedTableName="revinfo"
+                                 validate="true"/>
+
+    </changeSet>
+
+    <changeSet id="1630402310-17" author="yousefjabiti (generated)">
+
+        <createTable tableName="reasons_types">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="reasons_types_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+
+        <createTable tableName="reasons">
+            <column name="id" type="BIGINT" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="reasons_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="NVARCHAR(255)"/>
+            <column name="reason_type_id" type="BIGINT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="reason_type_id"
+                                 baseTableName="reasons"
+                                 constraintName="fksahynjh1kt78d6n6v99psnonq"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reasons_types"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet id="20210921_insert_reason_types" author="Khaled Abusair (generated)">
+        <insert tableName="reasons_types">
+            <column name="id" value="1"/>
+            <column name="name" value="reject"/>
+        </insert>
+        <insert tableName="reasons_types">
+            <column name="id" value="2"/>
+            <column name="name" value="return"/>
+        </insert>
+        <insert tableName="reasons_types">
+            <column name="id" value="3"/>
+            <column name="name" value="visit branch"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20210921_insert_reason" author="Khaled Abusair (generated)">
+        <insert tableName="reasons">
+            <column name="id" value="1"/>
+            <column name="name" value="Retake Selfie"/>
+            <column name="description" value="Retake Selfie"/>
+            <column name="reason_type_id" value="2"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="2"/>
+            <column name="name" value="Upload FATCA"/>
+            <column name="description" value="Upload FATCA"/>
+            <column name="reason_type_id" value="3"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="3"/>
+            <column name="name" value="Upload CRS"/>
+            <column name="description" value="Upload CRS"/>
+            <column name="reason_type_id" value="3"/>
+        </insert>
+
+        <insert tableName="reasons">
+            <column name="id" value="4"/>
+            <column name="name" value="Invalid Personal Details"/>
+            <column name="description" value="Invalid Personal Details"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="5"/>
+            <column name="name" value="Invalid ID Document Type"/>
+            <column name="description" value="Invalid ID Document Type"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="6"/>
+            <column name="name" value="Invalid ID Document File"/>
+            <column name="description" value="Invalid ID Document File"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="7"/>
+            <column name="name" value="Safewatch Alert"/>
+            <column name="description" value="Safewatch Alert"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="8"/>
+            <column name="name" value="Invalid Personal Address"/>
+            <column name="description" value="Invalid Personal Address"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="9"/>
+            <column name="name" value="Invalid Work Information"/>
+            <column name="description" value="Invalid Work Information"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+        <insert tableName="reasons">
+            <column name="id" value="10"/>
+            <column name="name" value="Dummy Customer"/>
+            <column name="description" value="Dummy Customer"/>
+            <column name="reason_type_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="1630569425-18" author="yousefjabiti (generated)">
+        <createTable tableName="case_reasons">
+            <column name="caseid" type="VARCHAR(255)"/>
+            <column name="reasonid" type="BIGINT"/>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="caseid"
+                                 baseTableName="case_reasons"
+                                 constraintName="fksahynjh1kt7yuis6v99ppovcd"
+                                 referencedColumnNames="caseid"
+                                 referencedTableName="customer_cases"
+                                 validate="true"/>
+        <addForeignKeyConstraint baseColumnNames="reasonid"
+                                 baseTableName="case_reasons"
+                                 constraintName="fksahynjh1kt7yuis44fcxzovll"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reasons"
+                                 validate="true"/>
+    </changeSet>
+
+
+    <changeSet author="yousefjabiti (generated)" id="1630913798-19">
+
+        <createTable tableName="case_reasons_aud">
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="BIGINT"/>
+            <column name="caseid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reasonid" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="reasons_aud">
+            <column name="rev" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revtype" type="BIGINT"/>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
+        <addPrimaryKey
+                constraintName="reasons_aud_pkey"
+                columnNames="id,rev"
+                tableName="reasons_aud"/>
+
+        <addForeignKeyConstraint baseColumnNames="rev"
+                                 baseTableName="case_reasons_aud"
+                                 constraintName="fkopqhy5eb4oi0qw4saaq5ifnv9"
+                                 referencedColumnNames="rev"
+                                 referencedTableName="revinfo"
+                                 validate="true"/>
+
+    </changeSet>
+
+    <changeSet id="1631448905-20" author="yousefjabiti (generated)">
+        <createTable tableName="unused_files">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="unused_files_pkey"/>
+            </column>
+            <column name="filename" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timestamp" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20211018-deleteReasons" author="waleed (generated)">
+        <sql>
+            delete from reasons;
+            delete from reasons_types where id = 3
+        </sql>
+    </changeSet>
+
+    <changeSet author="waleed (generated)" id="20211018-001addColumn">
+        <addColumn tableName="reasons" >
+            <column name="code" type="VARCHAR(255)">
+                <constraints unique="true" notNullConstraintName="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="20211018-insetReasons" author="waleed (generated)">
+        <loadData file="/db/newdata/reasons_20211018.csv"
+                  separator=";" tableName="reasons">
+            <column name="id" type="NUMERIC"/>
+            <column name="name" type="STRING"/>
+            <column name="description" type="STRING"/>
+            <column name="code" type="STRING"/>
+            <column name="reason_type_id" type="NUMERIC"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="20211122-001" author="waleed (generated)">
+        <createTable tableName="registration_attempts">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="registration_attempts_pkey"/>
+            </column>
+            <column name="documenttype" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="documentnumber" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numberofattempts" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20220206-001" author="mohammadshaban (generated)">
+        <createTable tableName="history_changelog">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="history_changelog_pkey"/>
+            </column>
+            <column name="creationdate" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="caseid" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="oldchanges" type="NVARCHAR(MAX)"/>
+            <column name="newchanges" type="NVARCHAR(MAX)"/>
+            <column name="deletedvalues" type="NVARCHAR(MAX)"/>
+            <column name="addedvalues" type="NVARCHAR(MAX)"/>
+            <column name="lastactionuser" type="VARCHAR(255)"/>
+            <column name="reasons" type="NVARCHAR(255)" />
+            <column name="status" type="VARCHAR(255)" />
+            <column name="action" type="INT"/>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="caseid"
+                                 baseTableName="history_changelog"
+                                 constraintName="fksahrt9x1kt7yuis6e39ppovcd"
+                                 referencedColumnNames="caseid"
+                                 referencedTableName="customer_cases"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+    <changeSet author="Waleed (generated)" id="20220316-001">
+        <createTable tableName="messageentity">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="messageentity_pkey"/>
+            </column>
+            <column name="content" type="NVARCHAR(MAX)"/>
+            <column name="creationdatetime" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="destination" type="NVARCHAR(255)"/>
+            <column name="updatedatetime" type="TIMESTAMP"/>
+            <column name="state" type="NVARCHAR(255)"/>
+            <column name="additionalinfo" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20220908-001" author="Faysal Alkharaz">
+        <createIndex tableName="customer_cases" indexName="idx_duplicateValidationIndex">
+            <column name="document_number"/>
+            <column name="document_type"/>
+            <column name="nationality"/>
+            <column name="stepid"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="20220908-002" author="Faysal Alkharaz">
+        <createIndex tableName="unused_files" indexName="idx_unusedFiles_filename">
+            <column name="filename"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Waleed" id="20220919-001add-column-to-customer-case">
+        <addColumn tableName="customer_cases">
+            <column name="availableroles" type="NVARCHAR(255)"/>
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="availableroles" type="NVARCHAR(255)"/>
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="availableroles_mod" type="NVARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="20221115-001" author="Mohammad Shaban">
+        <addColumn tableName="customer_cases">
+            <column name="is_deleted" type="BOOLEAN" />
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="is_deleted" type="BOOLEAN" />
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="isdeleted_mod" type="BOOLEAN" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="20230314-001" author="waleed (generated)">
+        <createTable tableName="tenants">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tenants_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20230314_insert_tenants" author="Waleed (generated)">
+        <sql dbms="mssql">SET IDENTITY_INSERT tenants ON;</sql>
+        <insert tableName="tenants">
+            <column name="id" value="1"/>
+            <column name="name" value="SYSTEM"/>
+        </insert>
+        <sql dbms="mssql">SET IDENTITY_INSERT tenants ON;</sql>
+    </changeSet>
+
+    <changeSet id="20230314-002" author="Waleed">
+        <addColumn tableName="business_cases">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="companies">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="customer_cases">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="tenantid_mod" type="BOOLEAN"/>
+        </addColumn>
+        <addColumn tableName="customer_info_integ">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="customers">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="history_changelog">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="reasons">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="reasons_types">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="registration_attempts">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+        <addColumn tableName="unused_files">
+            <column name="tenantid" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="20230315-001" author="Waleed">
+        <update tableName="business_cases">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="companies">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="customer_cases">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="customer_cases_aud">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="customer_info_integ">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="customers">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="history_changelog">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="reasons">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="reasons_types">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="registration_attempts">
+            <column name="tenantid" value="1"/>
+        </update>
+        <update tableName="unused_files">
+            <column name="tenantid" value="1"/>
+        </update>
+    </changeSet>
+
+    <changeSet id="20230315-002" author="Waleed">
+        <addNotNullConstraint tableName="business_cases" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="companies" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="customer_cases" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="customer_cases_aud" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="customer_info_integ" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="customers" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="history_changelog" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="reasons" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="reasons_types" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="registration_attempts" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+        <addNotNullConstraint tableName="unused_files" columnName="tenantid" columnDataType="BIGINT" validate="true"/>
+    </changeSet>
+
+    <changeSet id="20230314-003" author="Waleed">
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="business_cases"
+                                 constraintName="business_cases_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="companies"
+                                 constraintName="companies_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="customer_cases"
+                                 constraintName="customer_cases_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="customer_cases_aud"
+                                 constraintName="customer_cases_aud_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="customer_info_integ"
+                                 constraintName="customer_info_integ_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="customers"
+                                 constraintName="customers_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="history_changelog"
+                                 constraintName="history_changelog_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="NO ACTION"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="reasons"
+                                 constraintName="reasons_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="reasons_types"
+                                 constraintName="reasons_types_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="registration_attempts"
+                                 constraintName="registration_attempts_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+        <addForeignKeyConstraint baseColumnNames="tenantid"
+                                 baseTableName="unused_files"
+                                 constraintName="unused_files_forging_key"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tenants"
+                                 validate="true"
+                                 onDelete="CASCADE"/>
+    </changeSet>
+
+    <changeSet id="20240429-001" author="Ahmad Al-Aghbar">
+        <addColumn tableName="customer_cases">
+            <column name="is_firco_approved" type="BOOLEAN" />
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ahmad Al-Aghbar" id="20240429-002">
+        <addColumn tableName="customer_cases">
+            <column name="firco_ref_number" type="NVARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ahmad Al-Aghbar" id="20240430-001">
+        <addColumn tableName="customer_cases_aud">
+            <column name="firco_ref_number" type="NVARCHAR(255)"/>
+        </addColumn>
+        <addColumn tableName="customer_cases_aud">
+            <column name="is_firco_approved" type="BOOLEAN" />
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ahmad Al-Aghbar" id="20240430-002">
+        <addColumn tableName="customer_cases_aud">
+            <column name="fircorefnumber_mod" type="NVARCHAR(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ahmad Al-Aghbar" id="20240430-003">
+        <addColumn tableName="customer_cases_aud">
+            <column name="isfircoapproved_mod" type="BOOLEAN"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="20240501-001" author="Ahmad Al-Aghbar">
+        <insert tableName="reasons">
+            <column name="id" value="11"/>
+            <column name="name" value="Firco rejected"/>
+            <column name="description" value="Firco rejected"/>
+            <column name="reason_type_id" value="1"/>
+            <column name="tenantid" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="Ahmad Al-Aghbar" id="20240501-001addColumn">
+        <addColumn tableName="reasons" >
+            <column name="issystem" type="BOOLEAN"/>
+        </addColumn>
+        <update tableName="reasons">
+            <column name="issystem" valueBoolean="false"/>
+        </update>
+        <update tableName="reasons">
+            <column name="issystem" valueBoolean="true"/>
+            <where> id ='11'</where>
+        </update>
+    </changeSet>
+
+    <changeSet author="Ahmad Al-Aghbar" id="20240505-001adduniqueconstraint">
+        <addUniqueConstraint columnNames="firco_ref_number" constraintName="firco_ref_number_unique-constraint" tableName="customer_cases"/>
+    </changeSet>
+    <changeSet author="Ahmad Al-Aghbar" id="20240508-001updatereason">
+        <update tableName="reasons">
+            <column name="code" value="10007"/>
+            <where> id ='11'</where>
+        </update>
+    </changeSet>
+</databaseChangeLog>

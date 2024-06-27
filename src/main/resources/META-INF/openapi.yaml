@@ -1,0 +1,127 @@
+openapi: 3.0.1
+info:
+  title: PS-test API's
+  description: test API's
+  version: 1.0.0
+servers:
+  - description: PS-test API Server
+    url: http://localhost:7085/api/
+  - url: /api/
+paths:
+  /files:
+    post:
+      tags:
+        - Upload
+      summary: Upload File
+      description: Upload File
+      operationId: upload.file
+      parameters:
+        - name: tenant
+          in: header
+          schema:
+            type: string
+          required: false
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: './file.yaml#/components/schemas/uploadFile'
+      responses:
+        201:
+          description: Successfully uploaded a file
+          content:
+            application/json:
+              schema:
+                $ref: './file.yaml#/components/schemas/uploadResponse'
+  /files/{id}:
+    get:
+      tags:
+        - Download
+      summary: Download File
+      description: Download File
+      operationId: download.file
+      parameters:
+        - in: header
+          name: tenant
+          schema:
+            type: string
+          required: false
+        - name: id
+          in: path
+          description: File ID
+          required: true
+          schema:
+            type: string
+      responses:
+        201:
+          description: Successfully uploaded a file
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+          content:
+            application/octet-stream:
+              schema:
+                $ref: './file.yaml#/components/schemas/downloadResponse'
+    delete:
+      tags:
+        - Delete
+      summary: Delete File
+      description: Delete File
+      operationId: delete.file
+      parameters:
+        - in: header
+          name: tenant
+          schema:
+            type: string
+          required: false
+        - name: id
+          in: path
+          description: File ID
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Successfully delete a file
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+  /files/{id}/path:
+    get:
+      tags:
+        - Download
+      summary: Download Path File
+      description: Download Path File
+      operationId: download.path.file
+      parameters:
+        - in: header
+          name: tenant
+          schema:
+            type: string
+          required: false
+        - name: id
+          in: path
+          description: File ID
+          required: true
+          schema:
+            type: string
+        - name: expiry
+          in: query
+          description: Path Expiry in seconds
+          required: false
+          schema:
+            type: integer
+            default: 86400
+      responses:
+        201:
+          description: Successfully downloaded path
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+          content:
+            application/octet-stream:
+              schema:
+                $ref: './file.yaml#/components/schemas/downloadPathResponse'

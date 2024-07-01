@@ -196,16 +196,15 @@
         </dependency>
 
         <dependency>
-            <groupId>io.swagger.parser.v3</groupId>
-            <artifactId>swagger-parser</artifactId>
-            <version>2.0.19</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>2.2.22</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-core-jakarta</artifactId>
+            <version>2.2.22</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus.http</groupId>
@@ -227,6 +226,12 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version> <!-- or latest version -->
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -282,7 +287,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>4.3.1</version>
+                <version>7.6.0</version>
                 <executions>
                     <execution>
                         <configuration>
@@ -302,8 +307,12 @@
                                 <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                 <delegatePattern>true</delegatePattern>
                                 <additionalModelTypeAnnotations>@lombok.Generated</additionalModelTypeAnnotations>
+                                <useJakartaEe>true</useJakartaEe>
+                                <library>quarkus</library>
                             </configOptions>
-
+                            <globalProperties>
+                                <skipFormModel>false</skipFormModel>
+                            </globalProperties>
                             <typeMappings>
                                 <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
                             </typeMappings>
@@ -344,10 +353,10 @@
                                     </fileset>
                                 </replaceregexp>
 
-                                <replace token="@javax.annotation.Generated" value="@jakarta.annotation.Generated"
-                                         dir="target/generated-sources/openapi/src/gen/java">
-                                    <include name="**/*.java"/>
-                                </replace>
+                                <!--                                <replace token="@javax.annotation.Generated" value="@jakarta.annotation.Generated"-->
+                                <!--                                         dir="target/generated-sources/openapi/src/gen/java">-->
+                                <!--                                    <include name="**/*.java"/>-->
+                                <!--                                </replace>-->
 
 
                                 <replace token="import io.swagger.annotations.ApiModel;" value=""
@@ -355,20 +364,20 @@
                                     <include name="**/*.java"/>
                                 </replace>
 
-                                <replace token="import io.swagger.annotations.ApiParam;" value=""
-                                         dir="target/generated-sources/openapi/src/gen/java">
-                                    <include name="**/*.java"/>
-                                </replace>
+                                <!--                                <replace token="import io.swagger.annotations.ApiParam;" value=""-->
+                                <!--                                         dir="target/generated-sources/openapi/src/gen/java">-->
+                                <!--                                    <include name="**/*.java"/>-->
+                                <!--                                </replace>-->
 
                                 <replace token="import io.swagger.annotations.ApiModelProperty;" value=""
                                          dir="target/generated-sources/openapi/src/gen/java">
                                     <include name="**/*.java"/>
                                 </replace>
 
-                                <replace token="import javax." value="import jakarta."
-                                         dir="target/generated-sources/openapi/src/gen/java">
-                                    <include name="**/*.java"/>
-                                </replace>
+                                <!--                                <replace token="import javax." value="import jakarta."-->
+                                <!--                                         dir="target/generated-sources/openapi/src/gen/java">-->
+                                <!--                                    <include name="**/*.java"/>-->
+                                <!--                                </replace>-->
 
 
                             </target>

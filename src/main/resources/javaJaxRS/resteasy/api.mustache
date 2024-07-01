@@ -32,7 +32,7 @@ import jakarta.inject.Inject;
 @io.swagger.annotations.Api(description = "the {{{baseName}}} API")
 {{>generatedAnnotation}}
 {{#operations}}
-    @jakarta.enterprise.context.ApplicationScoped
+
     public class {{classname}}  {
 
     @Inject {{classname}}Service service;
@@ -42,7 +42,7 @@ import jakarta.inject.Inject;
         {{#subresourceOperation}}@Path("{{{path}}}"){{/subresourceOperation}}
         {{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/consumes}} }){{/hasConsumes}}
         {{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{^-last}}, {{/-last}}{{/produces}} }){{/hasProduces}}
-        @io.swagger.v3.oas.annotations.Operation(summary = "{{{summary}}}" {{#returnContainer}}{{/returnContainer}}{{#hasAuthMethods}}, authorizations = {
+        @io.swagger.v3.oas.annotations.Operation(summary = "{{{summary}}}",description = "{{{notes}}}" {{#returnContainer}}{{/returnContainer}}{{#hasAuthMethods}}, authorizations = {
         {{#authMethods}}@io.swagger.annotations.Authorization(value = "{{name}}"{{#isOAuth}}, scopes = {
         {{#scopes}}@io.swagger.annotations.AuthorizationScope(scope = "{{scope}}", description = "{{description}}"){{^-last}},
         {{/-last}}{{/scopes}}
